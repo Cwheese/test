@@ -1,0 +1,111 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsies1wn8thpw"]
+
+[ext_resource type="Script" uid="uid://bjaxw83jkno8" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="AudioStream" uid="uid://dtsdj50gqgwnd" path="res://music/Light Ambience 2.wav" id="2_bqqt6"]
+[ext_resource type="Script" uid="uid://cpr780hcof7my" path="res://scripts/screen.gd" id="2_ekxnf"]
+
+[sub_resource type="Gradient" id="Gradient_l6cm7"]
+offsets = PackedFloat32Array(0, 0.00490196, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.166477, 0.76725, 0, 1, 1, 0.760784, 0.027451, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ekxnf"]
+gradient = SubResource("Gradient_l6cm7")
+
+[sub_resource type="LabelSettings" id="LabelSettings_l6cm7"]
+font_size = 90
+font_color = Color(0.881661, 0.55437, 0, 1)
+
+[node name="main_menu" type="Node2D"]
+script = ExtResource("1_l6cm7")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bqqt6")
+autoplay = true
+
+[node name="screen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_ekxnf")
+
+[node name="TextureRect" type="TextureRect" parent="screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_right = 1111.0
+offset_bottom = 611.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_ekxnf")
+
+[node name="UI_box" type="Control" parent="screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect3" type="ColorRect" parent="screen/UI_box"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = -100.0
+offset_right = 427.0
+offset_bottom = 122.0
+color = Color(0.482353, 0.764706, 0.00784314, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="screen/UI_box"]
+layout_mode = 0
+offset_left = -161.0
+offset_top = 276.0
+offset_right = 190.0
+offset_bottom = 498.0
+color = Color(0.411765, 0.764706, 0.00784314, 1)
+
+[node name="ColorRect" type="ColorRect" parent="screen/UI_box"]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 107.0
+offset_right = 934.0
+offset_bottom = 329.0
+color = Color(0.811765, 0.760784, 0.0196078, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="title" type="Label" parent="CanvasLayer"]
+offset_left = 241.0
+offset_top = 161.0
+offset_right = 872.0
+offset_bottom = 285.0
+text = "Adventure of ?"
+label_settings = SubResource("LabelSettings_l6cm7")
+
+[node name="play" type="Button" parent="CanvasLayer"]
+offset_left = 372.0
+offset_top = 280.0
+offset_right = 741.0
+offset_bottom = 379.0
+text = "Mulai (Start)"
+
+[node name="exit" type="Button" parent="CanvasLayer"]
+offset_left = 372.0
+offset_top = 394.0
+offset_right = 741.0
+offset_bottom = 486.0
+text = "Exit (keluar)"
+
+[node name="lore" type="Button" parent="CanvasLayer"]
+offset_left = 372.0
+offset_top = 502.0
+offset_right = 744.0
+offset_bottom = 617.0
+text = "Lore (Cerita awal)"
+
+[connection signal="pressed" from="CanvasLayer/play" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/lore" to="." method="_on_lore_pressed"]

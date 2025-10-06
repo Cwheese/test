@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsies1wn8thpw"]
+
+[ext_resource type="Script" uid="uid://dquk8hexkg2kd" path="res://scripts/screen.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://dcer3yw4nuoq0" path="res://scripts/main_menu.gd" id="2_ekxnf"]
+
+[sub_resource type="Gradient" id="Gradient_ekxnf"]
+colors = PackedColorArray(0.585548, 0.672453, 5.77569e-07, 1, 0.358391, 0.730928, 0.102936, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bqqt6"]
+gradient = SubResource("Gradient_ekxnf")
+
+[sub_resource type="LabelSettings" id="LabelSettings_l6cm7"]
+font_size = 32
+font_color = Color(0.860039, 0.402978, 0, 1)
+
+[node name="screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_bqqt6")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control2"]
+layout_mode = 0
+offset_left = -776.0
+offset_top = -400.0
+offset_right = -712.0
+offset_bottom = -329.0
+scale = Vector2(9.30339, 5.13918)
+color = Color(0.439216, 0.705882, 0.0627451, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Control2"]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 119.0
+offset_right = 919.0
+offset_bottom = 465.0
+color = Color(0.54902, 0.678431, 0.0156863, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Control2"]
+layout_mode = 0
+offset_left = -480.0
+offset_top = 146.0
+offset_right = -9.0
+offset_bottom = 652.0
+color = Color(0.392157, 0.717647, 0.0823529, 1)
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 416.0
+offset_bottom = 240.0
+script = ExtResource("2_ekxnf")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 135.0
+offset_right = 774.0
+offset_bottom = 180.0
+text = "Adventure of Jefferson"
+label_settings = SubResource("LabelSettings_l6cm7")
+
+[node name="play" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 199.0
+offset_right = 738.0
+offset_bottom = 330.0
+text = "Play"
+
+[node name="lore" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 345.0
+offset_right = 736.0
+offset_bottom = 474.0
+text = "Lore"
+
+[node name="exit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 486.0
+offset_right = 736.0
+offset_bottom = 628.0
+text = "Exit"
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
+[connection signal="pressed" from="Control/play" to="Control" method="_on_play_pressed"]
+[connection signal="pressed" from="Control/lore" to="Control" method="_on_lore_pressed"]
+[connection signal="pressed" from="Control/exit" to="Control" method="_on_exit_pressed"]

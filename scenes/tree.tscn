@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://tfct0ts13guy"]
+
+[ext_resource type="Texture2D" uid="uid://bu5dlja7qi721" path="res://assets/survivalgame-appletree.png" id="1_avsvi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_avsvi"]
+
+[sub_resource type="GDScript" id="GDScript_vplca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viusy"]
+atlas = ExtResource("1_avsvi")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qd6xs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viusy")
+}],
+"loop": true,
+"name": &"apple_tree",
+"speed": 5.0
+}]
+
+[node name="tree" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_avsvi")
+script = SubResource("GDScript_vplca")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qd6xs")
+animation = &"apple_tree"

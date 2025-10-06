@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://c66ytjeajkwqo"]
+
+[ext_resource type="Script" uid="uid://cxfobl6b5nkuu" path="res://scripts/lore.gd" id="1_po2nf"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_po2nf")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Selamat datang di The Great Kingdom of Ernest, tepatnya di Desa GreenVille!  Tunggu sebentar.... di dunia nyata kamu entah bagaimana
+mengalami pingsan tetapi mengapa kamu sekarang ada di dalam gim ini???  Ya, ya, dan yap... kamu mengalami amnesia dan tidak tahu 
+kamu sedang ada di mana. Tetapi, mereka berbicara dengan bahasa yang aneh..... Kamu tidak paham, begitu juga aku. Kamu diselamatkan oleh
+seorang pria yang menghuni gubuk di hutan, dia menyuruh mu untuk pergi ke kerajaan dan menemui raja. Apakah dengan ini, kamu bisa mengingat
+kembali apa yang terjadi? Hmm.... pekerjaan sembari belajar bahasa baru, kamu akan mencoba belajar dan semoga saja dengan ketrampilan 
+yang kamu asah setiap harinya, kemampuan mu dalam menguasai bahasa tersebut bertambah.... Selamat Bermain!!
+
+Oh... satu lagi jika kamu ingin menikmati musik, kamu bisa menunggu di menu utama, jangan khawatir karena musik ini akan terus berjalan sampai 
+tiada hentinya!"
+text_overrun_behavior = 1
+
+[node name="bck_main_menu" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.5
+offset_top = -63.0
+offset_right = 153.5
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+
+[connection signal="pressed" from="bck_main_menu" to="." method="_on_bck_main_menu_pressed"]

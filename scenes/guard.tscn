@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwhg8ty2gkm1r"]
+
+[ext_resource type="Script" uid="uid://v00tgauhsakr" path="res://scripts/guard.gd" id="1_ci2qi"]
+[ext_resource type="Texture2D" uid="uid://dtf4fbmvixxej" path="res://assets/Top_Down_Kingdom_Tileset_FREE/Top_Down_Kingdom_Tileset_FREE/Atlas.png" id="1_m4fl1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci2qi"]
+atlas = ExtResource("1_m4fl1")
+region = Rect2(64, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0dx2"]
+atlas = ExtResource("1_m4fl1")
+region = Rect2(80, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygo2t"]
+atlas = ExtResource("1_m4fl1")
+region = Rect2(96, 240, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gn8tx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci2qi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0dx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygo2t")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k0dx2"]
+radius = 12.0
+
+[node name="guard" type="StaticBody2D"]
+script = ExtResource("1_ci2qi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, 6)
+scale = Vector2(1.75, 1.75)
+sprite_frames = SubResource("SpriteFrames_gn8tx")
+animation = &"idle"
+frame_progress = 0.185075
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 10)
+shape = SubResource("CircleShape2D_k0dx2")

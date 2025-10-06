@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxbdoeson565"]
+
+[ext_resource type="Script" uid="uid://oguky67an5nf" path="res://scripts/npc_outside.gd" id="1_3f78l"]
+[ext_resource type="Texture2D" uid="uid://c2hva1qka38xn" path="res://assets/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Characters/Main Character/Character_Idle.png" id="2_0xuci"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in35u"]
+atlas = ExtResource("2_0xuci")
+region = Rect2(0, 144, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5rho"]
+atlas = ExtResource("2_0xuci")
+region = Rect2(40, 144, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuisd"]
+atlas = ExtResource("2_0xuci")
+region = Rect2(80, 144, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1eiw"]
+atlas = ExtResource("2_0xuci")
+region = Rect2(120, 144, 40, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pxffq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in35u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5rho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuisd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1eiw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="npc_outside" type="StaticBody2D"]
+script = ExtResource("1_3f78l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pxffq")
+animation = &"idle"
+frame_progress = 0.453411

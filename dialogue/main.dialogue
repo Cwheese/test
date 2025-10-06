@@ -1,0 +1,45 @@
+~ start
+Villager: Yes, Player?
+
+if State.apple_status == "has":
+	Player: I have the stuff you asked.
+	- Give to Villager
+		set State.apple_status = "gave"
+		Player: Here you go.
+		Villager: Thank you kindly young man.
+	
+elif State.apple_status == "gave":
+	Villager: Thanks again for the apple
+	Villager: Ahh Player, I need one more assistance, would you kindly accept it?
+	- Accept the task
+		set State.apple_status = "go_to_castle"
+		If you choose this, you have a generous personality but this aspect is still far from complete (Work in progress) - Developer Yap
+	- Do not Accept
+		set State.apple_status = "go_to_castle"
+		Villager: Fine... if you say so young man.
+		
+elif State.apple_status == "go_to_castle":
+	Villager: Player! I suggest you go to the castle to meet with the king, I hope he could explain what happened to your arrival, Good luck Attaboy!
+	
+elif State.apple_status == "wait_apple":
+	Villager: I'm still waiting for the fruit, player.
+	
+else:
+	Villager: Howdy Ho! Player.
+	Villager: Player, You have woken up! [wait=1] How did you even get here?
+	Villager: I found you in the middle of forest, I hope things are sorted out back there.... You seems to have a really good sleep.
+	Villager: But nevertheless, Welcome to the gam-
+	Villager: Oh my bad, I shouldn't mention that....
+	Villager: I feel like, you aren't suppose to be here...
+	Villager: I sure wish for this breakfast, I would like to eat an [wave amp=25 freq=5]A#$%9L3[/wave]......
+	Villager: To deal with your amnesia, how about you take the fruit just beside my house and give it to me?
+	Villager: I will be waiting in advance.
+	set State.apple_status = "wait_apple"
+=> END!
+
+~ pick_apple
+Fruit picked!
+Player: This looks familiar looking like an apple, but I don't think it's actually an apple...
+Player: Whatever.... I'll just take it and give it to the villager.
+[wave amp=25 freq=5]Fruit collected[/wave]
+set State.apple_status = "has"

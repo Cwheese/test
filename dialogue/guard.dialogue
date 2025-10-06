@@ -1,0 +1,29 @@
+~ start
+Guard: Stop right there!
+if State.guard_status == "branch_picked":
+	Player: Here are all the tree branch
+	- Give to guard
+		set State.guard_status = "gave_branch"
+		Player: Here you go.
+		Guard: Thanks, with this you have proved to be a trusted peasant, come in, let the lord know you are here..
+
+elif State.guard_status == "gave_branch":
+	Guard: What are you waiting for? Go to the king.
+	
+elif State.guard_status == "waiting_for_branch":
+		Guard: Where's the branch I asked, peasant?
+else: 
+	Guard: [shake rate=20 level=10]Stop right there you filthy peasant![/shake]
+	Guard: Thy shall not pass! What is your order to the king?
+	Player: Pardon? 
+	Guard: What is your purpose to meet with the king?
+	Player: I'm lost in the middle nowhere if I could meet with the king, he might have something to help me.
+	Guard: I will let you pass if you do a job for me, collect at least 3 tree branch and give it to me immediately!
+	- Accept task
+		set State.guard_status = "waiting_for_branch"
+		Guard: Attaboy, now go and don't make me wait
+=> END!
+
+~ pick_branch
+Tree branch picked
+set State.guard_status = "branch_picked"

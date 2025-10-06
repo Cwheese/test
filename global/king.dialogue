@@ -1,0 +1,52 @@
+~ start
+Player: Lord Adler?
+
+elif State.ask_question == "end":
+	Halo! Terima kasih telah memainkan prototype ini.
+	Jujur tanpa kalian, gim ku nggak akan bisa sampai sini.
+	Data kalian bakal aku pake untuk kartul dan semoga aja di minggu ini aku sudah bisa nyelesaiin pembahasan dan dll.
+	Thanks for playing and I hope you learnt something from this game! Good luck and Have Fun.
+	
+elif State.ask_question == "end_2":
+	Halo! Terima kasih telah memainkan prototype ini.
+	Sampai sini saja guys karena gim ini kan sedari awal cuman prototype not for full game gitu lho
+	But anyways, you guys are a great for playing until the end
+	Maaf banget lho kalau aku bikinnya kayak nggak niat dan nggak konsisten
+	kena burnout pas desember hehehe jadi baru selesainya di Maret
+	oke guys sampai situ aja, Good luck and Have Fun in real life, Attaboy gamer!
+	
+elif State.ask_question == "ask":
+	Choose a response
+	- What is this world?
+		King Adler: I am the lord of this land, and this world is divided into 2 parts.
+		King Adler: Those who speak english and those who aren't
+		King Adler: But you seems to be not from here, yet.. you speak wisely in this land.
+		Player: Thanks, my lord
+		
+	- Who made this world?
+		King Adler: Thee name is unknown, but whoever mention his name shall bow to Him
+		Player: What does he look like?
+		King Adler: He lives in the underground, folks story said it was sealed forever
+		King Adler: To prevent an accident that used to happen, poorly....
+		Player: What is it, my lord?
+		King Adler: Yap's plague that ravaged whole mainland, the damage inflicted was... too much upon it.
+		King Adler: We can't risk another chance that could make Him mad...
+		
+	- How do I get out here?
+		King Adler: You cant, unless you have to make a pact with someone who knows it better.
+		King Adler: I had met similar accident, 10 years ago, he looked just like you.
+		King Adler: I couldn't accompany him, I let him chose his path, [wait=2] he was never seen anymore...
+		Player: Please my lord, I beg you.
+		King Adler: I will give you something that could hel-
+		set State.ask_question = "end_2"
+		
+	- End conversation now
+		set State.ask_question = "end"
+	
+else:
+	King Adler: What is it my boy, what are you and why are you here?
+	Player: I.... I don't even know how did I get here. But I have the same question to ask
+	King Adler: Go on, speak....
+	set State.ask_question = "ask"
+	
+=> END
